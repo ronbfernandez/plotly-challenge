@@ -30,5 +30,21 @@ var drawChart = function(x_data, y_data, hoverText, metadata) {
         }
     };
 
+    var data2 = [trace2];
 
-}
+    Plotly.newPlot('bubble', data2);
+
+};
+
+var populateDropdown = function(names) {
+
+    var selectTag = d3.select("#selDataset");
+    var options = selectTag.selectAll('option').data(names);
+
+    options.enter()
+        .append('option')
+        .attr('value', function(d) {
+            return d;
+        });
+    
+};
