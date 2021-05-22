@@ -93,7 +93,7 @@ var optionChanged = function(newValue) {
     drawChart(x_data, y_data, hoverText, metadata_new[0]);
     };
 
-d3.json("/data/samples.json").then(function(data) {
+d3.json("samples.json").then(function(data) {
 
     //Populate dropdown with names
     populateDropdown(data["names"]);
