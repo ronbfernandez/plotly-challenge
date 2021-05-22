@@ -8,7 +8,7 @@
 
 
 // had issues in getting the samples to read in to the each section (Demographic Info)
-// horizontal bar chart.  was not able to figure out how to fix. 
+// horizontal bar chart.  was not able to figure out how to fix on var metadata_panel. 
 
 
 var drawChart = function(x_data, y_data, hoverText, metadata) {
@@ -28,6 +28,19 @@ var drawChart = function(x_data, y_data, hoverText, metadata) {
     };
 
     var data = [trace];
+
+    var layout = {
+        title: "Top 10 OTU",
+        yaxis:{
+            tickmode: "linear",
+        },
+        margin: {
+            l: 100,
+            r: 100,
+            t: 100,
+            b: 30
+        }
+    };
 
     Plotly.newPlot('bar', data);
 
@@ -109,6 +122,7 @@ d3.json("samples.json").then(function(data) {
     drawChart(x_data, y_data, hoverText, metadata);
 
 });
+
 
 
 
