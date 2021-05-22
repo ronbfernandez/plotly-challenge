@@ -102,7 +102,7 @@ d3.json("samples.json").then(function(data) {
     x_data = data["samples"][0]["otu_ids"];
     y_data = data["samples"][0]["sample_values"];
     hoverText = data["samples"][0]["otu_labels"];
-    metadata = data["metabata"][0];
+    metadata = data["metadata"][0];
 
     //Draw the chart on load
     drawChart(x_data, y_data, hoverTet, metadata);
