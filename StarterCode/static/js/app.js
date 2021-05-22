@@ -39,7 +39,7 @@ var drawChart = function(x_data, y_data, hoverText, metadata) {
             size: y_data,
             color: x_data
         }
-    };
+    }; 
 
     var data2 = [trace2];
 
@@ -66,17 +66,20 @@ var populateDropdown = function(names) {
 var optionChanged = function(newValue) {
 
     d3.json("data/samples.json").then(function(data) {
-
+        
         sample_new = data["samples"].filter(function(sample) {
 
             return sample.id == newValue;
+
+        });
+
+        metadata_new = data["metadata"].filter(function(metadata) {
+
+            return metadata.id == newValue;
+
+        });
+
  
-    });
-
-    metadata_new = data["metadata"].filter(function(metadata) {
-
-        return metadata.id == newValue;
-
     });
 
     x_data = sample_new[0]["otu_ids"];
@@ -86,17 +89,17 @@ var optionChanged = function(newValue) {
     console.log(x_data);
     console.log(y_data);
     console.log(hoverText);
-    drawChart(x_data, y_data, hoeverText, metadata_new[0]);
-    });
-};
 
-d3.json("data/samples.json").then(function(data) {
+    drawChart(x_data, y_data, hoverText, metadata_new[0]);
+    };
+
+d3.json("/data/samples.json").then(function(data) {
 
     //Populate dropdown with names
     populateDropdown(data["names"]);
     
     //Populate the page with the first value
-    x_data = data["samples"][0][":otu_ids"];
+    x_data = data["samples"][0]["otu_ids"];
     y_data = data["samples"][0]["sample_values"];
     hoverText = data["samples"][0]["otu_labels"];
     metadata = data["metabata"][0];
