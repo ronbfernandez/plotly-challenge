@@ -7,7 +7,8 @@
 
 
 
-
+// had issues in getting the samples to read in to the each section (Demographic Info)
+// horizontal bar chart.  was not able to figure out how to fix. 
 
 
 var drawChart = function(x_data, y_data, hoverText, metadata) {
@@ -65,7 +66,7 @@ var populateDropdown = function(names) {
 
 var optionChanged = function(newValue) {
 
-    d3.json("data/samples.json").then(function(data) {
+    d3.json("samples.json").then(function(data) {
         
         sample_new = data["samples"].filter(function(sample) {
 
@@ -105,7 +106,7 @@ d3.json("samples.json").then(function(data) {
     metadata = data["metadata"][0];
 
     //Draw the chart on load
-    drawChart(x_data, y_data, hoverTet, metadata);
+    drawChart(x_data, y_data, hoverText, metadata);
 
 });
 
