@@ -1,7 +1,6 @@
 //Bonus 
 
 
-// Could not resolve issue with data  not reading into gauge. (problem related to coding on main app js
 
 function buildGauge(wfreq) {
     // Entering the washing frequency 
