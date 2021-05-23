@@ -46,8 +46,13 @@ function buildMetadata(sample) {
             }
         }
       ];
+
+      var bubbleLayout = {
+        title: "Bacteria Cultures Per Sample",
+        margin: { t: 15, l: 100 }
+      };
   
-      Plotly.plot("bubble", DataBubble, LayoutBubble);
+      Plotly.plot("bubble", DataBubble, LayoutBubble, bubbleLayout);
   
       //  Build a bar Chart
       
@@ -85,7 +90,7 @@ function buildMetadata(sample) {
           .property("value", sample);
       });
   
-      // Use the first sample from the list to build the initial plots
+      // Used the first sample from the list for plots
       const firstSample = sampleNames[0];
       buildCharts(firstSample);
       buildMetadata(firstSample);
@@ -98,7 +103,7 @@ function buildMetadata(sample) {
     buildMetadata(newSample);
   }
   
-  // Initialize the dashboard
+  // Initialize
   init();
 
 
